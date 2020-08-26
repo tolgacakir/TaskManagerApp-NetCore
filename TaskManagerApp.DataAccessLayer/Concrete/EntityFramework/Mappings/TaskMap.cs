@@ -11,7 +11,7 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
     {
         public void Configure(EntityTypeBuilder<Task> builder)
         {
-            builder.ToTable(@"Tasks", ".dbo");
+            builder.ToTable(@"Tasks", "dbo");
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).HasColumnName("Id");
             builder.Property(t => t.UserId).HasColumnName("UserId");
