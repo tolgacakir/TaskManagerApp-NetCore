@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TaskManagerApp.Core.Entities;
 
 namespace TaskManagerApp.Entities.Concrete
 {
-    public class Task
+    public class Task : IEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }
