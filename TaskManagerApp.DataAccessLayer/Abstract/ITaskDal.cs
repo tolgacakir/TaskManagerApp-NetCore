@@ -8,5 +8,6 @@ namespace TaskManagerApp.DataAccessLayer.Abstract
 {
     public interface ITaskDal : IEntityRepository<Task>
     {
+        Task GetWithTypeById(int taskId);
     }
 }

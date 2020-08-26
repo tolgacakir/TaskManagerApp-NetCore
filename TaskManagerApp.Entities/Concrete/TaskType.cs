@@ -8,6 +8,7 @@ namespace TaskManagerApp.Entities.Concrete
     public class TaskType : IEntity
     {
         public byte Id { get; set; }
+        public short DaysCount { get; set; }
         public string Description { get; set; }
     }
 }

@@ -14,5 +14,7 @@ namespace TaskManagerApp.Entities.Concrete
         public byte TypeId { get; set; }
         public bool IsCompleted { get; set; }
         public DateTime StartingDate { get; set; }
+        public TaskType Type { get; set; }
+
     }
 }
