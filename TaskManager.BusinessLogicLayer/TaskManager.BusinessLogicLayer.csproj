@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TaskManagerApp.DataAccessLayer\TaskManagerApp.DataAccessLayer.csproj" />
     <ProjectReference Include="..\TaskManagerApp.Entities\TaskManagerApp.Entities.csproj" />
   </ItemGroup>

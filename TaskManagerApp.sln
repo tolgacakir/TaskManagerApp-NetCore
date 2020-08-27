@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerApp.Entities", "TaskManagerApp.Entities\TaskManagerApp.Entities.csproj", "{E2C60FEB-0F2D-45F9-A3B2-D94C5A17C0A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagerApp.Entities", "TaskManagerApp.Entities\TaskManagerApp.Entities.csproj", "{E2C60FEB-0F2D-45F9-A3B2-D94C5A17C0A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerApp.Core", "TaskManagerApp.Core\TaskManagerApp.Core.csproj", "{8D27DEC4-9DAD-4D85-B9CF-51256E4FB1F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagerApp.Core", "TaskManagerApp.Core\TaskManagerApp.Core.csproj", "{8D27DEC4-9DAD-4D85-B9CF-51256E4FB1F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerApp.DataAccessLayer", "TaskManagerApp.DataAccessLayer\TaskManagerApp.DataAccessLayer.csproj", "{C5BE520E-7CBE-43EA-934C-734835845EB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagerApp.DataAccessLayer", "TaskManagerApp.DataAccessLayer\TaskManagerApp.DataAccessLayer.csproj", "{C5BE520E-7CBE-43EA-934C-734835845EB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.BusinessLogicLayer", "TaskManager.BusinessLogicLayer\TaskManager.BusinessLogicLayer.csproj", "{BCB6F13E-C4BD-4AE0-B1FF-256D9C55EC22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.BusinessLogicLayer", "TaskManager.BusinessLogicLayer\TaskManager.BusinessLogicLayer.csproj", "{BCB6F13E-C4BD-4AE0-B1FF-256D9C55EC22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
