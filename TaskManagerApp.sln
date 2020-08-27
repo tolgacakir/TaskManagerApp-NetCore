@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerApp.Core", "Task
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagerApp.DataAccessLayer", "TaskManagerApp.DataAccessLayer\TaskManagerApp.DataAccessLayer.csproj", "{C5BE520E-7CBE-43EA-934C-734835845EB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.BusinessLogicLayer", "TaskManager.BusinessLogicLayer\TaskManager.BusinessLogicLayer.csproj", "{BCB6F13E-C4BD-4AE0-B1FF-256D9C55EC22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C5BE520E-7CBE-43EA-934C-734835845EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5BE520E-7CBE-43EA-934C-734835845EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5BE520E-7CBE-43EA-934C-734835845EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB6F13E-C4BD-4AE0-B1FF-256D9C55EC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB6F13E-C4BD-4AE0-B1FF-256D9C55EC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB6F13E-C4BD-4AE0-B1FF-256D9C55EC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB6F13E-C4BD-4AE0-B1FF-256D9C55EC22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
