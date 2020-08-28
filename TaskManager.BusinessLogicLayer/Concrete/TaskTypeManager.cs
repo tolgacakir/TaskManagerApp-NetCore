@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TaskManager.BusinessLogicLayer.Abstract;
+using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
 
-namespace TaskManager.BusinessLogicLayer.Concrete
+namespace TaskManagerApp.BusinessLogicLayer.Concrete
 {
     public class TaskTypeManager : ITaskTypeService
     {

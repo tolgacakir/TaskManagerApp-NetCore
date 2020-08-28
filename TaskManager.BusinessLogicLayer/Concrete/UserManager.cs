@@ -2,13 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TaskManager.BusinessLogicLayer.Abstract;
-using TaskManager.BusinessLogicLayer.ValidationRules.FluentValidation;
+using TaskManagerApp.BusinessLogicLayer.Abstract;
+using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
 using TaskManagerApp.Core.CrossCuttingConcerns;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
 
-namespace TaskManager.BusinessLogicLayer.Concrete
+namespace TaskManagerApp.BusinessLogicLayer.Concrete
 {
     public class UserManager : IUserService
     {

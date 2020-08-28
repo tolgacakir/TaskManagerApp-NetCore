@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TaskManagerApp.Entities.Concrete;
 
-namespace TaskManager.BusinessLogicLayer.ValidationRules.FluentValidation
+namespace TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation
 {
     public class UserValidator : AbstractValidator<User>
     {

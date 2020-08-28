@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TaskManagerApp.Entities.Concrete;
 
-namespace TaskManager.BusinessLogicLayer.Abstract
+namespace TaskManagerApp.BusinessLogicLayer.Abstract
 {
     public interface ITaskService
     {
