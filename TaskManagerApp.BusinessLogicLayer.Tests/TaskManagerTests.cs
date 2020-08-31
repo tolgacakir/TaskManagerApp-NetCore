@@ -12,7 +12,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
 {
     public class TaskManagerTests
     {
-        private ITaskService _taskManager;
+        private readonly ITaskService _taskManager;
 
         public TaskManagerTests()
         {

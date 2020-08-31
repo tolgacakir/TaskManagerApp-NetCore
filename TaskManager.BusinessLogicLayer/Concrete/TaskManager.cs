@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
-using TaskManagerApp.Core.CrossCuttingConcerns;
+using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
 

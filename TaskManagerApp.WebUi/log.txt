@@ -1,0 +1,8 @@
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : test log
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : test log 2

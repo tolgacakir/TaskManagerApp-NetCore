@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
-using TaskManagerApp.Core.CrossCuttingConcerns;
+using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
 using TaskManagerApp.Entities.Concrete;
 using Xunit;
 

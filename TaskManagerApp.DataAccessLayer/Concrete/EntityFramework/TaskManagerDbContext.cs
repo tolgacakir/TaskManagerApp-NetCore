@@ -21,7 +21,7 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //TODO: The connection string will be written.
-            optionsBuilder.UseSqlServer(@"");
+            optionsBuilder.UseSqlServer(@"Data Source=ENDOS\SQLEXPRESS;Initial Catalog=TaskManagerDB;Integrated Security=True;Pooling=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

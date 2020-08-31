@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TaskManagerApp.Core.CrossCuttingConcerns
+namespace TaskManagerApp.Core.CrossCuttingConcerns.Validation
 {
     public class ValidatorTool
     {

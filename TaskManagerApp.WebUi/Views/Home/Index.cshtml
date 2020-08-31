@@ -1,0 +1,57 @@
+﻿@model TaskManagerApp.WebUi.Models.TasksViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome, @Model.User.Username</h1>
+
+</div>
+<br />
+<br />
+<div>
+
+    @*@if (TempData["error"] != null)
+    {
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @TempData["error"].ToString()
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    }*@
+
+
+
+    <table class="table table-hover table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Completed</th>
+                <th scope="col">Starting Date</th>
+                <th scope="col">Title</th>
+                <th scope="col">Type</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Tasks.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@(i+1)</th>
+                    <td align="center"><input class="form-check-input" type="checkbox" checked="@Model.Tasks[i].IsCompleted"></td>
+                    <td>@Model.Tasks[i].StartingDate.ToShortDateString()</td>
+                    <td>@Model.Tasks[i].Title</td>
+                    <td>@Model.Tasks[i].Type.Description</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-secondary">Show</button>
+                            <button type="button" class="btn btn-warning">Update</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
