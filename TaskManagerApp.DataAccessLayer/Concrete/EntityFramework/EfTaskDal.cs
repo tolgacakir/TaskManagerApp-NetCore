@@ -10,20 +10,6 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
 {
     public class EfTaskDal : EfEntityRepositoryBase<Task,TaskManagerDbContext>, ITaskDal
     {
-        public IQueryable<Task> GetQueryableWithType(Expression<Func<Task, bool>> filter = null)
-        {
-            using var context = new TaskManagerDbContext();
-            return context.Tasks
-                .Include(t => t.Type)
-                .Where(filter);
-        }
 
-        public Task GetWithTypeById(int taskId)
-        {
-            using var context = new TaskManagerDbContext();
-            return context.Tasks
-                .Include(t => t.Type)
-                .FirstOrDefault(t => t.Id == taskId);
-        }
     }
 }

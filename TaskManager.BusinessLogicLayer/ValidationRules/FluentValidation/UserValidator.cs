@@ -15,10 +15,10 @@ namespace TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation
             RuleFor(u => u.Username).Length(3, 10).WithMessage("Username must be between 3-10 characters.");
             RuleFor(u => u.Username.Contains(" ")).Equal(false).WithMessage("Username can not contain space.");
 
-            RuleFor(u => u.Username).NotEmpty().WithMessage("Password can not be empty.");
-            RuleFor(u => u.Username).NotNull().WithMessage("Password can not be null.");
-            RuleFor(u => u.Username).Length(8, 20).WithMessage("Password must be between 8-20 characters.");
-            RuleFor(u => u.Username.Contains(" ")).Equal(false).WithMessage("Password can not contain space.");
+            RuleFor(u => u.Password).NotEmpty().WithMessage("Password can not be empty.");
+            RuleFor(u => u.Password).NotNull().WithMessage("Password can not be null.");
+            RuleFor(u => u.Password).Length(8, 20).WithMessage("Password must be between 8-20 characters.");
+            RuleFor(u => u.Password.Contains(" ")).Equal(false).WithMessage("Password can not contain space.");
         }
     }
 }

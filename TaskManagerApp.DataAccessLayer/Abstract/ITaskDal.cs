@@ -8,7 +8,5 @@ namespace TaskManagerApp.DataAccessLayer.Abstract
 {
     public interface ITaskDal : IEntityRepository<Task>
     {
-        Task GetWithTypeById(int taskId);
-        IQueryable<Task> GetQueryableWithType(Expression<Func<Task, bool>> filter = null);
     }
 }

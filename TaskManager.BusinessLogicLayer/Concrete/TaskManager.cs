@@ -1,6 +1,9 @@
 ﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
@@ -42,6 +45,17 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
         public List<Task> GetAll(int userId)
         {
             return _taskDal.GetList(t => t.UserId == userId);
+        }
+
+        public List<Task> GetListWithType(int userId)
+        {
+            var result = _taskDal
+                .GetQueryable()
+                .Where(t => t.UserId == userId)
+                .Include(t => t.Type)
+                .ToList();
+
+            return result;
         }
     }
 }

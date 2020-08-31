@@ -12,6 +12,13 @@ namespace TaskManagerApp.Core.DataAccess.EntityFramework
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
+        public IQueryable<TEntity> GetQueryable()
+        {
+            var context = new TContext();
+            var Table = context.Set<TEntity>();
+            return Table;
+        }
+
         public TEntity Add(TEntity entity)
         {
             using var context = new TContext();
