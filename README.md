@@ -77,7 +77,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
     }
 }
 ```
-
+__
 - **Create an manager class as an implementation the service interface;**
 ```C#
 namespace TaskManagerApp.BusinessLogicLayer.Abstract
