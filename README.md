@@ -74,6 +74,10 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
         void Add(MyEntity myEntity);
         void Update(MyEntity myEntity);
         void Delete(MyEntity myEntity);
+        List<MyEntity> GetWithMyCondition(P parameter);
+        
+        // And/Or custom methods...
+        //... 
     }
 }
 ```
@@ -84,6 +88,13 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
 {
     public class MyEntityManager : IMyEntityService
     {
+        IMyEntityDal _myEntityDal;
+        
+        public MyEntityManager(IMyEntityDal myEntityDal)
+        {
+          _myEntityDal = myEntityDal;
+        }
+        
         List<MyEntity> GetAll()
         {
             //some code
@@ -106,3 +117,4 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
     }
 }
 ```
+MyEntityManager doesn't know the IMyEntityService implementation or any ORM, DB technologies. This class only works with repository (dal object) interface.
