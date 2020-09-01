@@ -92,7 +92,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
         
         public MyEntityManager(IMyEntityDal myEntityDal)
         {
-          _myEntityDal = myEntityDal;
+            _myEntityDal = myEntityDal;
         }
         
         List<MyEntity> GetAll()
@@ -111,6 +111,11 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
         }
         
         void Delete(MyEntity myEntity)
+        {
+            //some code
+        }
+        
+        List<MyEntity> GetWithMyCondition(P parameter)
         {
             //some code
         }
