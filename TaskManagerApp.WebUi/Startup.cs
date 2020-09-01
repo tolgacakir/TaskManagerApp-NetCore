@@ -34,6 +34,8 @@ namespace TaskManagerApp.WebUi
 
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<ITaskService, TaskManager>();
+            services.AddScoped<ITaskTypeService, TaskTypeManager>();
+            services.AddScoped<ITaskTypeDal, EfTaskTypeDal>();
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<ITaskDal, EfTaskDal>();
         }

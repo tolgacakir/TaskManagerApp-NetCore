@@ -1,0 +1,64 @@
+﻿@model TaskManagerApp.WebUi.Models.CreateEditTaskViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add New Task</h1>
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @TempData["error"].ToString()
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+@if (TempData["processResult"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="a">
+        <strong>Successfully!</strong> @TempData["processResult"].ToString()
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<form asp-controller="home" asp-action="create" method="post">
+    <div class="form-group">
+        <label asp-for="Task.Title"></label>
+        <input asp-for="Task.Title" class="form-control" placeholder="Title" />
+        <span asp-validation-for="Task.Title"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Task.Description"></label>
+        <input asp-for="Task.Description" class="form-control" placeholder="Description" />
+        <span asp-validation-for="Task.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Task.TypeId"></label>
+        <select asp-for="Task.TypeId" class="form-control" asp-items="@(new SelectList(Model.TaskTypes,"Id","Description"))"></select>
+        <span asp-validation-for="Task.TypeId"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Task.UserId"></label>
+        <input asp-for="Task.UserId" class="form-control" placeholder="User ID" />
+        <span asp-validation-for="Task.UserId"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Task.StartingDate"></label>
+        <input asp-for="Task.StartingDate" class="form-control" type="date" value="@DateTime.Now.Date" placeholder="Starting Date" />
+        <span asp-validation-for="Task.StartingDate"></span>
+    </div>
+
+    <input type="submit" value="Create" class="btn btn-xs btn-success" />
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

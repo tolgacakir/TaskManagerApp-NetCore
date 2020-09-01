@@ -8,6 +8,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
+using TaskManagerApp.Entities.Concrete;
 using TaskManagerApp.WebUi.Models;
 
 namespace TaskManagerApp.WebUi.Controllers
@@ -16,27 +17,82 @@ namespace TaskManagerApp.WebUi.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ITaskService _taskManager;
-        private readonly IUserService _userService;
-        public HomeController(ILogger<HomeController> logger, ITaskService taskService, IUserService userService)
+        private readonly IUserService _userManager;
+        private readonly ITaskTypeService _taskTypeManager;
+        public HomeController(ILogger<HomeController> logger, ITaskService taskService, IUserService userService, ITaskTypeService taskTypeManager)
         {
             _logger = logger;
             _taskManager = taskService;
-            _userService = userService;
+            _userManager = userService;
+            _taskTypeManager = taskTypeManager;
         }
 
         public IActionResult Index()
         {
-            var user = _userService.Login("FirstUser", "11111111");
+            var user = _userManager.Login("FirstUser", "11111111");
             var tasks = _taskManager.GetListWithType(user.Id)
             .OrderBy(t => t.StartingDate)
             .ToList();
-            var model = new TasksViewModel
+            var model = new TaskListViewModel
             {
                 User = user,
                 Tasks = tasks,
             };
             return View(model);
 
+        }
+
+        public IActionResult Create()
+        {
+            var user = _userManager.Login("FirstUser", "11111111");
+            var model = new CreateEditTaskViewModel
+            {
+                Task = new Entities.Concrete.Task(),
+                TaskTypes = _taskTypeManager.GetAll(),
+                UserId = user.Id
+            };
+            return View(model);
+        }
+        
+        [HttpPost]
+        public IActionResult Create(Entities.Concrete.Task task)
+        {
+            var user = _userManager.Login("FirstUser", "11111111");
+            var model = new CreateEditTaskViewModel
+            {
+                Task = task,
+                TaskTypes = _taskTypeManager.GetAll(),
+                UserId = user.Id
+            };
+            try
+            {
+                _taskManager.Add(task);
+                return RedirectToAction(nameof(Index));
+            }
+            catch(ValidationException ex)
+            {
+                TempData["Error!"]= ex.Message;
+                return View(model);
+            }
+            catch (Exception)
+            {
+                TempData["Error!"] = "Unsuccessfully";
+                return View(model);
+            }
+        }
+
+        //[HttpPost]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _taskManager.Delete(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         public IActionResult Privacy()

@@ -1,4 +1,4 @@
-﻿@model TaskManagerApp.WebUi.Models.TasksViewModel
+﻿@model TaskManagerApp.WebUi.Models.TaskListViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,26 +11,20 @@
 <br />
 <div>
 
-    @*@if (TempData["error"] != null)
-    {
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> @TempData["error"].ToString()
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    }*@
 
-
-
+    <a class="btn btn-success" asp-controller="home" asp-action="create">New Task</a>
+    <br />
+    <br />
     <table class="table table-hover table-hover table-striped">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Status</th>
                 <th scope="col">Completed</th>
                 <th scope="col">Starting Date</th>
                 <th scope="col">Title</th>
                 <th scope="col">Type</th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -39,15 +33,21 @@
             {
                 <tr>
                     <th scope="row">@(i+1)</th>
-                    <td align="center"><input class="form-check-input" type="checkbox" checked="@Model.Tasks[i].IsCompleted"></td>
+                    <td>@Model.Tasks[i].Status</td>
+                    <td align="center"><input class="form-check-input" type="checkbox" checked="@Model.Tasks[i].IsCompleted" disabled></td>
                     <td>@Model.Tasks[i].StartingDate.ToShortDateString()</td>
                     <td>@Model.Tasks[i].Title</td>
                     <td>@Model.Tasks[i].Type.Description</td>
                     <td>
+                        <a type="button" class="btn btn-secondary" asp-controller="task" asp-action="details" asp-route-id="@Model.Tasks[i].Id">
+
+                            Show
+                        </a>
+                    </td>
+                    <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary">Show</button>
-                            <button type="button" class="btn btn-warning">Update</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <a type="button" class="btn btn-warning" asp-controller="home" asp-action="edit" asp-route-id="@Model.Tasks[i].Id">Update</a>
+                            <a type="button" class="btn btn-danger" asp-controller="home" asp-action="delete" asp-route-id="@Model.Tasks[i].Id">Delete</a>
                         </div>
                     </td>
                 </tr>

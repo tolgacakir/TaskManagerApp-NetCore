@@ -1,0 +1,16 @@
+﻿@model TaskManagerApp.WebUi.Models.TaskDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>@Model.Task.Title</h2>
+<br />
+<h4>@Model.Task.Status  -  IsCompleted:@Model.Task.IsCompleted</h4>
+<br />
+<p>@Model.Task.Description</p>
+
+<br />
+@*<div class="btn-group" role="group" aria-label="Basic example">
+    <a type="button" class="btn btn-warning" asp-controller="task" asp-action="edit" asp-route-id="@Model.Task.Id">Update</a>
+    <a type="button" class="btn btn-danger" asp-controller="task" asp-action="delete" asp-route-id="@Model.Task.Id">Delete</a>
+</div>*@
