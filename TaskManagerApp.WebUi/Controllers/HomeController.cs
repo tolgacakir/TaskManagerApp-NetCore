@@ -81,7 +81,45 @@ namespace TaskManagerApp.WebUi.Controllers
             }
         }
 
-        //[HttpPost]
+        public IActionResult Update(int id)
+        {
+            var user = _userManager.Login("FirstUser", "11111111");
+            var model = new CreateEditTaskViewModel
+            {
+                Task = _taskManager.GetListWithType(user.Id).FirstOrDefault(t => t.Id == id),
+                TaskTypes = _taskTypeManager.GetAll(),
+                UserId = user.Id
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Entities.Concrete.Task task)
+        {
+            var user = _userManager.Login("FirstUser", "11111111");
+            var model = new CreateEditTaskViewModel
+            {
+                Task = task,
+                TaskTypes = _taskTypeManager.GetAll(),
+                UserId = user.Id
+            };
+            try
+            {
+                _taskManager.Update(task);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (ValidationException ex)
+            {
+                TempData["Error!"] = ex.Message;
+                return View(model);
+            }
+            catch (Exception)
+            {
+                TempData["Error!"] = "Unsuccessfully";
+                return View(model);
+            }
+        }
+
         public IActionResult Delete(int id)
         {
             try

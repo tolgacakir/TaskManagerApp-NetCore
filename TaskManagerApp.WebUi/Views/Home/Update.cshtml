@@ -1,0 +1,63 @@
+﻿@model TaskManagerApp.WebUi.Models.CreateEditTaskViewModel
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update</h1>
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @TempData["error"].ToString()
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+@if (TempData["processResult"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="a">
+        <strong>Successfully!</strong> @TempData["processResult"].ToString()
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<form asp-controller="home" asp-action="update" method="post">
+    <div class="form-group">
+        <label asp-for="Task.Title"></label>
+        <input asp-for="Task.Title" class="form-control" value="@Model.Task.Title" placeholder="Title" />
+        <span asp-validation-for="Task.Title"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Task.Description"></label>
+        <input asp-for="Task.Description" class="form-control" value="@Model.Task.Description" placeholder="Description" />
+        <span asp-validation-for="Task.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Task.TypeId"></label>
+        <select asp-for="Task.TypeId" class="form-control" ite asp-items="@(new SelectList(Model.TaskTypes,"Id","Description"))"></select>
+        <span asp-validation-for="Task.TypeId"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Task.StartingDate"></label>
+        <input asp-for="Task.StartingDate" class="form-control" type="date" value="@Model.Task.StartingDate.Date" placeholder="Starting Date" />
+        <span asp-validation-for="Task.StartingDate"></span>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" asp-for="Task.IsCompleted" checked="@Model.Task.IsCompleted">
+        <label class="form-check-label" asp-for="Task.IsCompleted">Is Completed</label>
+    </div>
+    <input asp-for="Task.UserId" type="hidden" value="@Model.Task.UserId" />
+    <input asp-for="Task.Id" type="hidden" value="@Model.Task.Id" />
+    <input type="submit" value="Update" class="btn btn-xs btn-success" />
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
