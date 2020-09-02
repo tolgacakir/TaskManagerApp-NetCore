@@ -6,22 +6,10 @@
 }
 
 <h1>Add New Task</h1>
-@if (TempData["error"] != null)
+@if (!ViewData.ModelState.IsValid && ViewData.ModelState["Error"].Errors.Count > 0)
 {
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> @TempData["error"].ToString()
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
-@if (TempData["processResult"] != null)
-{
-    <div class="alert alert-success alert-dismissible fade show" role="a">
-        <strong>Successfully!</strong> @TempData["processResult"].ToString()
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="alert alert-danger">
+       <strong>Error!</strong> @ViewData.ModelState["Error"].Errors.First().ErrorMessage
     </div>
 }
 <form asp-controller="home" asp-action="create" method="post">
@@ -44,17 +32,12 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Task.UserId"></label>
-        <input asp-for="Task.UserId" class="form-control" placeholder="User ID" />
-        <span asp-validation-for="Task.UserId"></span>
-    </div>
-
-    <div class="form-group">
         <label asp-for="Task.StartingDate"></label>
         <input asp-for="Task.StartingDate" class="form-control" type="date" value="@DateTime.Now.Date" placeholder="Starting Date" />
         <span asp-validation-for="Task.StartingDate"></span>
     </div>
 
+    <input type="hidden" value="@Model.UserId" asp-for="Task.UserId" />
     <input type="submit" value="Create" class="btn btn-xs btn-success" />
 </form>
 

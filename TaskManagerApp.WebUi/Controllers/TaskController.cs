@@ -32,14 +32,22 @@ namespace TaskManagerApp.WebUi.Controllers
         // GET: TaskController/Details/5
         public IActionResult Details(int id)
         {
-
-            var task = _taskManager.GetListWithType(User.Identity.UserId())
-                .FirstOrDefault(t => t.Id == id);
-            var model = new TaskDetailsViewModel
+            try
             {
-                Task = task,
-            };
-            return View(model);
+                var task = _taskManager.GetListWithType(User.Identity.UserId())
+                .FirstOrDefault(t => t.Id == id);
+                var model = new TaskDetailsViewModel
+                {
+                    Task = task,
+                };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
     }
 }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Session;
+using Microsoft.Extensions.Logging;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.WebUi.Models;
 
@@ -13,11 +15,13 @@ namespace TaskManagerApp.WebUi.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly ILogger<AccountController> _logger;
         private readonly IUserService _userManager;
 
-        public AccountController(IUserService userManager)
+        public AccountController(ILogger<AccountController> logger, IUserService userManager)
         {
             _userManager = userManager;
+            _logger = logger;
         }
 
         public IActionResult Login()
@@ -27,18 +31,12 @@ namespace TaskManagerApp.WebUi.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel loginViewModel)
         {
-            Entities.Concrete.User user;
+            Entities.Concrete.User user = null;
             try
             {
-                if (string.IsNullOrEmpty(loginViewModel.Username) || string.IsNullOrEmpty(loginViewModel.Password))
-                {
-                    user = null;
-                }
-                else
-                {
-                    user = _userManager.Login(loginViewModel.Username, loginViewModel.Password);
-                }
-                
+                loginViewModel.Username ??= "";
+                loginViewModel.Password ??= "";
+                user = _userManager.Login(loginViewModel.Username, loginViewModel.Password);
                 if (user != null)
                 {
                     var identity = new ClaimsIdentity(
@@ -51,17 +49,24 @@ namespace TaskManagerApp.WebUi.Controllers
                     );
                     ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
                     HttpContext.SignInAsync("SecurityScheme", claimsPrincipal);
-
+                    _logger.LogInformation("Logged in. Username:" + user.Username + " DateTime:" + DateTime.Now);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
+                    ModelState.AddModelError("Error", "Username or password is invalid.");
                     return View();
                 }
             }
-            catch (Exception)
+            catch(ValidationException ex)
             {
+                ModelState.AddModelError("Error", ex.Message);
                 return View();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Error();
             }
         }
 
@@ -69,6 +74,12 @@ namespace TaskManagerApp.WebUi.Controllers
         {
             HttpContext.SignOutAsync();
             return RedirectToAction(nameof(Login));
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel());
         }
     }
 }

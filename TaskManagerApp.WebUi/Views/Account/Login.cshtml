@@ -4,6 +4,13 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@if (!ViewData.ModelState.IsValid && ViewData.ModelState["Error"]?.Errors.Count > 0)
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong> @ViewData.ModelState["Error"].Errors.First().ErrorMessage
+    </div>
+}
 <div class="row">
     <div class="col">
         <form asp-action="Login" asp-controller="Account" method="post">

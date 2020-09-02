@@ -11,10 +11,17 @@
 <br />
 <div>
 
-
     <a class="btn btn-success" asp-controller="home" asp-action="create">New Task</a>
+    <a class="btn btn-danger" asp-controller="account" asp-action="logout">Logout</a>
     <br />
+    @if (!ViewData.ModelState.IsValid && ViewData.ModelState["Error"].Errors.Count > 0)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong> @ViewData.ModelState["Error"].Errors.First().ErrorMessage
+        </div>
+    }
     <br />
+
     <table class="table table-hover table-hover table-striped">
         <thead class="thead-dark">
             <tr>
@@ -34,7 +41,7 @@
                 <tr>
                     <th scope="row">@(i+1)</th>
                     <td>@Model.Tasks[i].Status</td>
-                    <td align="center"><input class="form-check-input" type="checkbox" checked="@Model.Tasks[i].IsCompleted" disabled></td>
+                    <td align="center"><input class="form-check-input" type="checkbox" checked="@Model.Tasks[i].IsCompleted" onclick="return false"></td>
                     <td>@Model.Tasks[i].StartingDate.ToShortDateString()</td>
                     <td>@Model.Tasks[i].Title</td>
                     <td>@Model.Tasks[i].Type.Description</td>
@@ -55,5 +62,6 @@
         </tbody>
     </table>
 
-    <a class="btn btn-success" asp-controller="account" asp-action="logout">Logout</a>
 </div>
+
+

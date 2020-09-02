@@ -33,95 +33,124 @@ namespace TaskManagerApp.WebUi.Controllers
         
         public IActionResult Index()
         {
-            var user = new User
+            try
             {
-                Id = User.Identity.UserId(),
-                Username = User.Identity.Username()
-            };
+                var user = new User
+                {
+                    Id = User.Identity.UserId(),
+                    Username = User.Identity.Username()
+                };
 
-            var tasks = _taskManager.GetListWithType(user.Id)
-            .OrderBy(t => t.StartingDate)
-            .ToList();
-            var model = new TaskListViewModel
+                var tasks = _taskManager.GetListWithType(user.Id)
+                .OrderBy(t => t.StartingDate)
+                .ToList();
+                var model = new TaskListViewModel
+                {
+                    User = user,
+                    Tasks = tasks,
+                };
+                return View(model);
+            }
+            catch (Exception ex)
             {
-                User = user,
-                Tasks = tasks,
-            };
-            return View(model);
+                _logger.LogError(ex.Message);
+                return Error();
+            }
+            
         }
 
         public IActionResult Create()
         {
-            var model = new CreateEditTaskViewModel
+            try
             {
-                Task = new Entities.Concrete.Task(),
-                TaskTypes = _taskTypeManager.GetAll(),
-                UserId = User.Identity.UserId(),
-            };
-            return View(model);
+                var model = new CreateEditTaskViewModel
+                {
+                    Task = new Entities.Concrete.Task(),
+                    TaskTypes = _taskTypeManager.GetAll(),
+                    UserId = User.Identity.UserId(),
+                };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Error();
+            }
+            
         }
         
         [HttpPost]
         public IActionResult Create(Entities.Concrete.Task task)
         {
-            var model = new CreateEditTaskViewModel
-            {
-                Task = task,
-                TaskTypes = _taskTypeManager.GetAll(),
-                UserId = User.Identity.UserId(),
-            };
+            CreateEditTaskViewModel model = null;
             try
             {
+                model = new CreateEditTaskViewModel
+                {
+                    Task = task,
+                    TaskTypes = _taskTypeManager.GetAll(),
+                    UserId = User.Identity.UserId(),
+                };
                 _taskManager.Add(task);
                 return RedirectToAction(nameof(Index));
             }
             catch(ValidationException ex)
             {
-                TempData["Error!"]= ex.Message;
+                ModelState.AddModelError("Error", ex.Message);
                 return View(model);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                TempData["Error!"] = "Unsuccessfully";
-                return View(model);
+                _logger.LogError(ex.Message);
+                return Error();
             }
         }
 
         public IActionResult Update(int id)
         {
-            int userId = User.Identity.UserId();
-            var model = new CreateEditTaskViewModel
+            try
             {
-                Task = _taskManager.GetListWithType(userId).FirstOrDefault(t => t.Id == id),
-                TaskTypes = _taskTypeManager.GetAll(),
-                UserId = userId,
-            };
-            return View(model);
+                int userId = User.Identity.UserId();
+                var model = new CreateEditTaskViewModel
+                {
+                    Task = _taskManager.GetListWithType(userId).FirstOrDefault(t => t.Id == id),
+                    TaskTypes = _taskTypeManager.GetAll(),
+                    UserId = userId,
+                };
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return Error();
+            }
+
         }
 
         [HttpPost]
         public IActionResult Update(Entities.Concrete.Task task)
         {
-            var model = new CreateEditTaskViewModel
-            {
-                Task = task,
-                TaskTypes = _taskTypeManager.GetAll(),
-                UserId = User.Identity.UserId()
-            };
+            CreateEditTaskViewModel model = null;
             try
             {
+                model = new CreateEditTaskViewModel
+                {
+                    Task = task,
+                    TaskTypes = _taskTypeManager.GetAll(),
+                    UserId = User.Identity.UserId()
+                };
                 _taskManager.Update(task);
                 return RedirectToAction(nameof(Index));
             }
             catch (ValidationException ex)
             {
-                TempData["Error!"] = ex.Message;
+                ModelState.AddModelError("Error", ex.Message);
                 return View(model);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                TempData["Error!"] = "Unsuccessfully";
-                return View(model);
+                _logger.LogError(ex.Message);
+                return Error();
             }
         }
 
@@ -132,9 +161,10 @@ namespace TaskManagerApp.WebUi.Controllers
                 _taskManager.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return RedirectToAction(nameof(Index));
+                _logger.LogError(ex.Message);
+                return Error();
             }
         }
 
