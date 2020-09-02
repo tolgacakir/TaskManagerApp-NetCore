@@ -42,7 +42,7 @@ __
 ```C#
 namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
 {
-  public class EfTaskDal : EfEntityRepositoryBase<MyEntity,MyDbContext>, IMyEntityDal
+  public class EfMyEntityDal : EfEntityRepositoryBase<MyEntity,MyDbContext>, IMyEntityDal
   {
   }
 }
@@ -56,7 +56,7 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
   {
     public int GetCount()
     {
-      //TODO: implementation
+      //...
     }
   }
 }
@@ -88,7 +88,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
 {
     public class MyEntityManager : IMyEntityService
     {
-        IMyEntityDal _myEntityDal;
+        private readonly IMyEntityDal _myEntityDal;
         
         public MyEntityManager(IMyEntityDal myEntityDal)
         {
@@ -97,29 +97,236 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
         
         List<MyEntity> GetAll()
         {
-            //some code
+            //...
         }
         
         void Add(MyEntity myEntity)
         {
-            //some code
+            //...
         }
         
         void Update(MyEntity myEntity)
         {
-            //some code
+            //...
         }
         
         void Delete(MyEntity myEntity)
         {
-            //some code
+            //...
         }
         
         List<MyEntity> GetWithMyCondition(P parameter)
         {
-            //some code
+            //...
         }
     }
 }
 ```
 MyEntityManager doesn't know the IMyEntityService implementation or any ORM, DB technologies. This class only works with repository (dal object) interface.
+
+### Using MyEntity Service Object In Client-Side
+- Registration for dependency injection;
+```C#
+namespace TaskManagerApp.WebUi
+{
+    public class Startup
+    {
+        //...
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddScoped<IMyEntityService, MyEntityManager>();
+            //...
+        }
+        //...
+    }
+}
+```
+__
+- Inject with constructor and use it;
+```C#
+namespace TaskManagerApp.WebUi.Controllers
+{
+    [Authorize]
+    public class HomeController : Controller
+    {
+        private readonly IMyEntityService _myEntityManager;
+        //...
+        
+        public HomeController(IMyEntityService myEntityManager, /*...*/)
+        {
+            _myEntityManager = myEntityManager;
+            //...
+        }
+        
+        public IActionResult Index()
+        {
+            try
+            {
+                var myEntities = _myEntityManager.GetAll();
+                //...
+            }
+            catch(Exception)
+            {
+                //...
+            }
+        }
+        //...
+    }
+}
+```
+
+### Adding Validation For MyEntity
+
+- Create MyEntityValidator;
+TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation -> MyEntityValidator.cs
+```C#
+namespace TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation
+{
+    public class MyEntityValidator : AbstractValidator<MyEntity>
+    {
+        public MyEntityValidator()
+        {
+            RuleFor(m => m.X).NotEqual(0).WithMessage("X can not be zero.");
+        }
+    }
+}
+```
+__
+- Use MyEntityValidator in MyEntityManger;
+```C#
+namespace TaskManagerApp.BusinessLogicLayer.Abstract
+{
+    public class MyEntityManager : IMyEntityService
+    {
+        private readonly IMyEntityDal _myEntityDal;
+        private readonly IValidator _validator;
+        
+        public MyEntityManager(IMyEntityDal myEntityDal)
+        {
+            _myEntityDal = myEntityDal;
+            _validator = new MyEntityValidator();
+        }
+        
+        List<MyEntity> GetAll()
+        {
+            //...
+        }
+        
+        void Add(MyEntity myEntity)
+        {
+            ValidatorTool.Validate(_validator, myEntity);
+            //...
+        }
+        ...
+    }
+}
+```
+
+### Adding CustomLogger
+- Create CustomLogger; 
+TaskManagerApp.Core.CrossCuttingConcerns.Logging.Loggers -> CustomLogger.cs
+```C#
+namespace TaskManagerApp.Core.CrossCuttingConcerns.Logging.Loggers
+{
+    public class CustomLogger : ILogger
+    {
+        public CustomLogger()
+        {
+        }
+
+        public IDisposable BeginScope<TState>(TState state)
+        {
+            return null;
+        }
+
+        public bool IsEnabled(LogLevel logLevel)
+        {
+            return true;
+        }
+
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        {
+            string logMessage = $"...**write log message**...";
+            //...
+            //write to file, database etc.
+            //...
+        }
+    }
+}
+
+```
+__
+- Create CustomLoggerProvider;
+
+```C#
+namespace TaskManagerApp.Core.CrossCuttingConcerns.Logging.LoggerProviders
+{
+    public class CustomLoggerProvider : ILoggerProvider
+    {
+        public CustomLoggerProvider()
+        {
+        }
+        public ILogger CreateLogger(string categoryName)
+        {
+            return new CustomLogger();
+        }
+
+        public void Dispose()
+        {
+        }
+    }
+}
+
+```
+__
+- Use CustomLoggerProvider;
+
+```C#
+namespace TaskManagerApp.WebUi
+{
+    public class Startup
+    {
+        //...
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddProvider(new CustomLoggerProvider());
+            //...
+        }
+        //...
+    }
+}
+```
+___
+- Inject CustomLogger with constructor and use it;
+```C#
+namespace TaskManagerApp.WebUi.Controllers
+{
+    [Authorize]
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+        //...
+        
+        public HomeController(ILogger<HomeController> logger, /*...*/)
+        {
+            _logger = logger;
+            //...
+        }
+        
+        public IActionResult Index()
+        {
+            try
+            {
+                //...
+            }
+            catch(Exception)
+            {
+                //...
+               _logger.LogError(/* **log message** */);
+            }
+        }
+        //...
+    }
+}
+```
+This controller is agnostic about logger implementation.
