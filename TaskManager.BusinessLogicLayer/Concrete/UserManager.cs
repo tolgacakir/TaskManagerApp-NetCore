@@ -5,6 +5,7 @@ using System.Text;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
 using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
+using TaskManagerApp.Core.Utilities.Security;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
 
@@ -23,10 +24,17 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
 
         public User Create(string username, string password)
         {
+            byte[] passwordHash;
+            byte[] passwordSalt;
+
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+
             var user = new User
             {
                 Username = username,
                 Password = password,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
             };
             ValidatorTool.Validate(_validator, user);
 
@@ -35,25 +43,19 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
 
         public User Login(string username, string password)
         {
-            var tempUser = new User
+            var user = new User
             {
                 Username = username,
                 Password = password,
             };
-            ValidatorTool.Validate(_validator, tempUser);
+            ValidatorTool.Validate(_validator, user);
+            user = null;
+            user = _userDal.Get(u => u.Username == username);
+            bool isVerified = HashingHelper.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt);
 
-            var user = _userDal.Get(s => s.Username == tempUser.Username && s.Password == tempUser.Password);
-            if (user != null)
-            {
-                return user;
-            }
-            else
-            {
-                return null;
-            }
+            return isVerified 
+                ? user ?? null
+                : null;
         }
-
-        
-
     }
 }

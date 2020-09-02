@@ -15,7 +15,8 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
             builder.HasKey(u => u.Id);
             builder.Property(u => u.Id).HasColumnName("Id");
             builder.Property(u => u.Username).HasColumnName("Username");
-            builder.Property(u => u.Password).HasColumnName("Password");
+            builder.Property(u => u.PasswordHash).HasColumnName("PasswordHash");
+            builder.Property(u => u.PasswordSalt).HasColumnName("PasswordSalt");
         }
     }
 }

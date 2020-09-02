@@ -29,6 +29,7 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
             modelBuilder.ApplyConfiguration(new TaskMap());
             modelBuilder.ApplyConfiguration(new TaskTypeMap());
             modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.Entity<User>().Ignore(u => u.Password);
         }
 
     }

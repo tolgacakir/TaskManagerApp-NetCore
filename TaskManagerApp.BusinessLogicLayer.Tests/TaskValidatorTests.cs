@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
 using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
+using TaskManagerApp.Core.Utilities.Security;
 using TaskManagerApp.Entities.Concrete;
 using Xunit;
 
@@ -31,5 +32,6 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
 
             Assert.Throws<ValidationException>(()=>ValidatorTool.Validate(_taskValidator, task));
         }
+
     }
 }
