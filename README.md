@@ -37,6 +37,41 @@ namespace TaskManagerApp.Entities.Concrete
 }
 ```
 __
+- **Create Mapping, Edit DbContext and Apply Mapping**
+Creating Map:
+```C#
+namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
+{
+    public class MyEntityMap : IEntityTypeConfiguration<MyEntity>
+    {
+        public void Configure(EntityTypeBuilder<MyEntity> builder)
+        {
+            builder.ToTable(@"MyEntities", "dbo");
+            builder.HasKey(m => m.Id);
+            builder.Property(m => m.Id).HasColumnName("Id");
+            builder.Property(m => m.X).HasColumnName("X");
+        }
+    }
+}
+```
+Adding DbSet to DbContext:
+```C#
+namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
+{
+    public class TaskManagerDbContext : DbContext
+    {
+        //...
+        public DbSet<MyEntity> MyEntities { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //...
+            modelBuilder.ApplyConfiguration(new MyEntityMap());
+        }
+    }
+}
+```
+__
 - **Create technology-independent repository interface;**
 ```C#
 namespace TaskManagerApp.DataAccessLayer.Abstract
