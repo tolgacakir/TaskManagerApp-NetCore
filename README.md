@@ -1,6 +1,24 @@
 # TaskManagerApp-NetCore
 The task manager sample application with Asp.NetCore MVC
 
+## Solution Structure
+- **Core:**
+The Core layer is an portable class library for every project. It doesn't depend on any project in this solution but it can depend on some nuget libraries. For exp.: FluentValidation. It includes technology-specific project/entity-independent codes like Logger, Validator, ORM interfaces and generic implementations and utilities. For exp.: FileManager, Entity Framework Core GenericRepository, FileLogger...
+
+- **Entities:**
+The Entities layer is an modelling the DB objects. It includes entity objects that usable in all of the layers like **User**.
+
+- **DataAccessLayer:**
+The Data Access Layer is layer that connecting to the data. It can includes different data access technologies for exp.: EF, Nhibernate, Ado.Net etc.
+On the other hand, it includes technology-independent repository interfaces. For exp.: IUserDal.
+The client (It is BLL in this solution) that using DAL uses only interfaces. However, the client can choose which concrete class (for exp.: EfUserDal or AdoNetUserDal) to implement by constructor injection.
+
+- **BusinessLogicLayer:**
+This layer acts as a bridge between the UI and DataAccess layers. It includes service/manager classes, business codes etc.
+
+- **WebUi:**
+This layer is an Asp.Net Core Mvc project. It includes Models, Views, Controllers and the other ready-made classes from Asp.Net Core Mvc
+
 ### Changing the **ConnectionString**
 - Open the TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.TaskManagerDbContext.cs file
 - Change the OnConfiguring() -> optionsBuilder.UseSqlServer(@"**myConnectionString**");
