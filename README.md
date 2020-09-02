@@ -1,7 +1,7 @@
 # TaskManagerApp-NetCore
 The task manager sample application with Asp.NetCore MVC
 
-## Solution Structure
+## The Solution Architecture
 - **Core:**
 The Core layer is an portable class library for every project. It doesn't depend on any project in this solution but it can depend on some nuget libraries. For exp.: FluentValidation. It includes technology-specific project/entity-independent codes like Logger, Validator, ORM interfaces and generic implementations and utilities. For exp.: FileManager, Entity Framework Core GenericRepository, FileLogger...
 
@@ -18,6 +18,8 @@ This layer acts as a bridge between the UI and DataAccess layers. It includes se
 
 - **WebUi:**
 This layer is an Asp.Net Core Mvc project. It includes Models, Views, Controllers and the other ready-made classes from Asp.Net Core Mvc
+
+## How to Develop
 
 ### Changing the **ConnectionString**
 - Open the TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.TaskManagerDbContext.cs file
@@ -348,3 +350,14 @@ namespace TaskManagerApp.WebUi.Controllers
 }
 ```
 This controller is agnostic about logger implementation.
+
+### Adding New User Interface
+
+-Create new user interface;
+For exp.: Console, Winform, Wpf etc.
+
+-Use the service layer objects (in BLL);
+For exp.: IUserService
+
+-Configure the dependency injection;
+For ILogger, IUserService etc.
