@@ -54,7 +54,7 @@ namespace TaskManagerApp.Entities.Tests
             var task = new Task
             {
                 Title = "test",
-                StartingDate = DateTime.Now.AddDays(-2),
+                StartingDate = DateTime.Now.AddDays(-1),
                 IsCompleted = false,
                 Type = taskType,
             };

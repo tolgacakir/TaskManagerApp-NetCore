@@ -16,7 +16,7 @@ namespace TaskManagerApp.Entities.Concrete
         public DateTime StartingDate { get; set; }
         public TaskType Type { get; set; }
 
-        public DateTime EndingDate => StartingDate.AddDays(Type.DaysCount);
+        public DateTime EndingDate => StartingDate.AddDays(Type.DaysCount -1);
 
         public int DifferenceFromEnd
         {
