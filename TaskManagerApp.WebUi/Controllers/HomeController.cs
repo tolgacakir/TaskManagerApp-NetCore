@@ -5,14 +5,17 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
+using TaskManagerApp.WebUi.Extensions;
 using TaskManagerApp.WebUi.Models;
 
 namespace TaskManagerApp.WebUi.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,9 +30,15 @@ namespace TaskManagerApp.WebUi.Controllers
             _taskTypeManager = taskTypeManager;
         }
 
+        
         public IActionResult Index()
         {
-            var user = _userManager.Login("FirstUser", "11111111");
+            var user = new User
+            {
+                Id = User.Identity.UserId(),
+                Username = User.Identity.Username()
+            };
+
             var tasks = _taskManager.GetListWithType(user.Id)
             .OrderBy(t => t.StartingDate)
             .ToList();
@@ -39,17 +48,15 @@ namespace TaskManagerApp.WebUi.Controllers
                 Tasks = tasks,
             };
             return View(model);
-
         }
 
         public IActionResult Create()
         {
-            var user = _userManager.Login("FirstUser", "11111111");
             var model = new CreateEditTaskViewModel
             {
                 Task = new Entities.Concrete.Task(),
                 TaskTypes = _taskTypeManager.GetAll(),
-                UserId = user.Id
+                UserId = User.Identity.UserId(),
             };
             return View(model);
         }
@@ -57,12 +64,11 @@ namespace TaskManagerApp.WebUi.Controllers
         [HttpPost]
         public IActionResult Create(Entities.Concrete.Task task)
         {
-            var user = _userManager.Login("FirstUser", "11111111");
             var model = new CreateEditTaskViewModel
             {
                 Task = task,
                 TaskTypes = _taskTypeManager.GetAll(),
-                UserId = user.Id
+                UserId = User.Identity.UserId(),
             };
             try
             {
@@ -83,12 +89,12 @@ namespace TaskManagerApp.WebUi.Controllers
 
         public IActionResult Update(int id)
         {
-            var user = _userManager.Login("FirstUser", "11111111");
+            int userId = User.Identity.UserId();
             var model = new CreateEditTaskViewModel
             {
-                Task = _taskManager.GetListWithType(user.Id).FirstOrDefault(t => t.Id == id),
+                Task = _taskManager.GetListWithType(userId).FirstOrDefault(t => t.Id == id),
                 TaskTypes = _taskTypeManager.GetAll(),
-                UserId = user.Id
+                UserId = userId,
             };
             return View(model);
         }
@@ -96,12 +102,11 @@ namespace TaskManagerApp.WebUi.Controllers
         [HttpPost]
         public IActionResult Update(Entities.Concrete.Task task)
         {
-            var user = _userManager.Login("FirstUser", "11111111");
             var model = new CreateEditTaskViewModel
             {
                 Task = task,
                 TaskTypes = _taskTypeManager.GetAll(),
-                UserId = user.Id
+                UserId = User.Identity.UserId()
             };
             try
             {

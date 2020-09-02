@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
 using TaskManagerApp.WebUi.Models;
+using TaskManagerApp.WebUi.Extensions;
 
 namespace TaskManagerApp.WebUi.Controllers
 {
+    [Authorize]
     public class TaskController : Controller
     {
         private readonly ILogger<TaskController> _logger;
@@ -29,8 +32,8 @@ namespace TaskManagerApp.WebUi.Controllers
         // GET: TaskController/Details/5
         public IActionResult Details(int id)
         {
-            var user = _userManager.Login("FirstUser", "11111111");
-            var task = _taskManager.GetListWithType(user.Id)
+
+            var task = _taskManager.GetListWithType(User.Identity.UserId())
                 .FirstOrDefault(t => t.Id == id);
             var model = new TaskDetailsViewModel
             {

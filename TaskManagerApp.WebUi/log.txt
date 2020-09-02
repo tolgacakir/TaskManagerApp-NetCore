@@ -274,3 +274,101 @@ Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content roo
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi

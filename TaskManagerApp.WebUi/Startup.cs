@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Configuration;
@@ -30,7 +32,24 @@ namespace TaskManagerApp.WebUi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllersWithViews();
+
+
+            services.AddAuthentication("SecurityScheme")
+                         .AddCookie("SecurityScheme", options =>
+                         {
+                             options.LoginPath = "/Account/Login";
+                             options.Cookie = new CookieBuilder
+                             {
+                          //Domain = "",
+                          HttpOnly = false,
+                                 Name = "Login.Security.Cookie",
+                                 Path = "/",
+                              
+
+                             };
+                         });
 
             services.AddScoped<IUserService, UserManager>();
             services.AddScoped<ITaskService, TaskManager>();
@@ -58,7 +77,8 @@ namespace TaskManagerApp.WebUi
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -49,7 +49,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
             }
             else
             {
-                throw new Exception("Invalid username or password.");
+                return null;
             }
         }
 
