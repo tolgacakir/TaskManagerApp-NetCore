@@ -10,6 +10,6 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
 {
     public class EfTaskDal : EfEntityRepositoryBase<Task,TaskManagerDbContext>, ITaskDal
     {
-
+        
     }
 }

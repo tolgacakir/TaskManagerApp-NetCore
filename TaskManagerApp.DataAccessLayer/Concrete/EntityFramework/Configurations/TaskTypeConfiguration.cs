@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Text;
 using TaskManagerApp.Entities.Concrete;
 
-namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
+namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Configurations
 {
-    public class TaskTypeMap : IEntityTypeConfiguration<TaskType>
+    public class TaskTypeConfiguration : IEntityTypeConfiguration<TaskType>
     {
         public void Configure(EntityTypeBuilder<TaskType> builder)
         {

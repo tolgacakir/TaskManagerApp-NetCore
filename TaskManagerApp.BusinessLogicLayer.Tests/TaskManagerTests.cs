@@ -1,3 +1,4 @@
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -29,12 +30,12 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
         {
             var task = new Task()
             {
-                Title = "unit_test_task_title",
+                Title = "unit_test_task_titl3",
                 Description = "test test test",
                 IsCompleted = false,
                 StartingDate = DateTime.Now,
                 TypeId = 1,
-                UserId = 1
+                UserId = 8
             };
             _taskManager.Add(task);
 
@@ -46,7 +47,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
         [Fact]
         public void Should_Get_All_Task()
         {
-            var count = _taskManager.GetAll(1)
+            var count = _taskManager.GetAll(8)
                 .Count();
             Assert.True(count>0);
         }
@@ -54,15 +55,14 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
         [Fact]
         public void Should_Update_Task()
         {
-            var task = _taskManager.GetAll(1)
-                .Where(t => t.Id == 1)
+            var task = _taskManager.GetAll(8)
                 .FirstOrDefault();
-            
-            task.Description = "description after update test";
+
+            task.Description += "1";
             _taskManager.Update(task);
-            
-            var updatedTask = _taskManager.GetAll(1)
-                .Where(t => t.Id == 1)
+
+            var updatedTask = _taskManager.GetAll(8)
+                .Where(t => t.Id == task.Id)
                 .FirstOrDefault();
 
             Assert.Equal(task.Description, updatedTask.Description);
@@ -90,6 +90,5 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
 
             Assert.Equal(count - 1, newCount);
         }
-
     }
 }

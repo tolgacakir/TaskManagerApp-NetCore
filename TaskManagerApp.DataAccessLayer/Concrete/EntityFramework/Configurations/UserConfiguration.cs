@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Text;
 using TaskManagerApp.Entities.Concrete;
 
-namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
+namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Configurations
 {
-    public class UserMap : IEntityTypeConfiguration<User>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
@@ -17,6 +17,7 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
             builder.Property(u => u.Username).HasColumnName("Username");
             builder.Property(u => u.PasswordHash).HasColumnName("PasswordHash");
             builder.Property(u => u.PasswordSalt).HasColumnName("PasswordSalt");
+            builder.Ignore(u => u.Password);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
         List<Task> GetListWithType(int userId);
 
         //List<Task> GetListAreActiveNotCompleted(int userId);
-        
+
         //List<Task> GetListAreNotStarted(int userId);
-        
+
         //List<Task> GetListAreOutOfDate(int userId);
 
         void Add(Task task);

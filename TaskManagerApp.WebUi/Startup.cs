@@ -17,6 +17,7 @@ using TaskManagerApp.BusinessLogicLayer.Concrete;
 using TaskManagerApp.Core.CrossCuttingConcerns.Logging.LoggerProviders;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.DataAccessLayer.Concrete.EntityFramework;
+using TaskManagerApp.BusinessLogicLayer.DependencyResolvers.Microsoft;
 
 namespace TaskManagerApp.WebUi
 {
@@ -51,12 +52,7 @@ namespace TaskManagerApp.WebUi
                              };
                          });
 
-            services.AddScoped<IUserService, UserManager>();
-            services.AddScoped<ITaskService, TaskManager>();
-            services.AddScoped<ITaskTypeService, TaskTypeManager>();
-            services.AddScoped<ITaskTypeDal, EfTaskTypeDal>();
-            services.AddScoped<IUserDal, EfUserDal>();
-            services.AddScoped<ITaskDal, EfTaskDal>();
+            services.AddTaskManagerDependencyResolver();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
