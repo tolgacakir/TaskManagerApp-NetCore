@@ -36,7 +36,12 @@ namespace TaskManagerApp.WebUi.Controllers
             {
                 loginViewModel.Username ??= "";
                 loginViewModel.Password ??= "";
-                user = _userManager.Login(loginViewModel.Username, loginViewModel.Password);
+                var tempUser = new Entities.Concrete.User
+                {
+                    Username = loginViewModel.Username,
+                    Password = loginViewModel.Password
+                };
+                user = _userManager.Login(tempUser);
                 if (user != null)
                 {
                     var identity = new ClaimsIdentity(

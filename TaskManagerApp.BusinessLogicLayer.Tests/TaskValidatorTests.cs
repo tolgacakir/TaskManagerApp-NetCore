@@ -30,7 +30,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
                 Title = null,
             };
 
-            Assert.Throws<ValidationException>(()=>ValidatorTool.Validate(_taskValidator, task));
+            Assert.Throws<ValidationException>(()=>ValidationTool.Validate(_taskValidator, task));
         }
 
     }

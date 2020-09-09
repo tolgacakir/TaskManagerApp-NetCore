@@ -7,7 +7,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
 {
     public interface IUserService
     {
-        User Login(string username, string password);
-        User Create(string username, string password);
+        User Login(User tempUser);
+        User Create(User user);
     }
 }

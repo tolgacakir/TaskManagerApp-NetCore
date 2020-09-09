@@ -1,38 +1,7 @@
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : The string argument 'connectionString' cannot be empty.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : The string argument 'connectionString' cannot be empty.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:14:58:28
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:2.09.2020 14:59:20
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : The string argument 'connectionString' cannot be empty.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : Invalid column name 'Password'.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : Invalid column name 'Password'.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : Invalid column name 'Password'.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : Invalid column name 'Password'.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : Invalid column name 'Password'.
+Log Level : Error | Event ID : 0 | Event Name :  | Formatter : An error occurred while updating the entries. See the inner exception for details.
 Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
@@ -40,70 +9,6 @@ Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content roo
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : Invalid column name 'Password'.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:FirstUser DateTime:2.09.2020 18:06:25
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:2.09.2020 18:06:33
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:2.09.2020 18:54:44
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : An exception was thrown while attempting to evaluate a LINQ query parameter expression. To show additional information call EnableSensitiveDataLogging() when overriding DbContext.OnConfiguring.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : An exception was thrown while attempting to evaluate a LINQ query parameter expression. To show additional information call EnableSensitiveDataLogging() when overriding DbContext.OnConfiguring.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : The string argument 'connectionString' cannot be empty.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Error | Event ID : 0 | Event Name :  | Formatter : Invalid column name 'PropertyName'.
-Log Level : Error | Event ID : 1 | Event Name : UnhandledException | Formatter : An unhandled exception has occurred while executing the request.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:2.09.2020 19:58:19
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:2.09.2020 20:01:51
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:FirstUser DateTime:2.09.2020 20:02:17
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:4.09.2020 13:09:57
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:FirstUser DateTime:4.09.2020 13:10:11
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
-Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:9.09.2020 09:46:30

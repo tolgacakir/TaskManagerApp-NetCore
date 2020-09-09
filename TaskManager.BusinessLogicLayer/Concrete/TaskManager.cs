@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
+using TaskManagerApp.Core.Aspects.Autofac.Validation;
 using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
@@ -15,24 +16,26 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
 {
     public class TaskManager : ITaskService
     {
-        private readonly IValidator _validator;
+        //private readonly IValidator _validator;
         private readonly ITaskDal _taskDal;
 
         public TaskManager(ITaskDal taskDal)
         {
             _taskDal = taskDal;
-            _validator = new TaskValidator();
+            //_validator = new TaskValidator();
         }
 
+        [ValidationAspect(typeof(TaskValidator))]
         public void Add(Task task)
         {
-            ValidatorTool.Validate(_validator, task);
+            //ValidationTool.Validate(_validator, task);
             _taskDal.Add(task);
         }
 
+        [ValidationAspect(typeof(TaskValidator))]
         public void Update(Task task)
         {
-            ValidatorTool.Validate(_validator, task);
+            //ValidationTool.Validate(_validator, task);
             _taskDal.Update(task);
         }
 

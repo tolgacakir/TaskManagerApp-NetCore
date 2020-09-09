@@ -19,6 +19,7 @@ namespace TaskManagerApp.BusinessLogicLayer.DependencyResolvers.Microsoft
             services.AddScoped<ITaskTypeDal, EfTaskTypeDal>();
             services.AddScoped<IUserDal, EfUserDal>();
             services.AddScoped<ITaskDal, EfTaskDal>();
+
             return services;
         }
     }

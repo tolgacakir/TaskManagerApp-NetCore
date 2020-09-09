@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TaskManagerApp.Core.CrossCuttingConcerns.Validation
 {
-    public class ValidatorTool
+    public class ValidationTool
     {
         public static void Validate<T>(IValidator validator, T entity)
         {
