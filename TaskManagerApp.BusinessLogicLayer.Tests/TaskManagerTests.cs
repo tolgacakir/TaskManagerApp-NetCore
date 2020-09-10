@@ -1,4 +1,5 @@
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
         {
             var task = new Task()
             {
-                Title = "unit_test_task_titl3",
+                Title = "unit_test_task_titl5",
                 Description = "test test test",
                 IsCompleted = false,
                 StartingDate = DateTime.Now,
@@ -40,7 +41,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
             _taskManager.Add(task);
 
             bool result = _taskManager.GetAll(task.UserId)
-                .Any(t => t.Title == task.Title && t.TypeId == task.TypeId && t.Description == task.Description);
+                .Any(t => t.Title == task.Title && t.TypeId == task.TypeId && t.Description == task.Description &&t.StartingDate.Date == task.StartingDate.Date);
             Assert.True(result);
         }
 
@@ -89,6 +90,23 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
             int newCount = _taskManager.GetAll(1).Count;
 
             Assert.Equal(count - 1, newCount);
+        }
+
+        [Fact]
+        public void Should_Not_Success_Transactional_Operation_Example()
+        {
+            bool result = false;
+            try
+            {
+                var task = _taskManager.GetListWithType(8).FirstOrDefault();
+                task.Description +="1";
+                _taskManager.TransactionalOperationExample(task);
+                result = true;
+            }
+            catch(Exception e)
+            {
+            }
+            Assert.False(result);
         }
     }
 }

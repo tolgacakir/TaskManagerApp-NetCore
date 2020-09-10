@@ -20,5 +20,6 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
         void Add(Task task);
         void Update(Task task);
         void Delete(int taskId);
+        void TransactionalOperationExample(Task task);
     }
 }

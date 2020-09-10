@@ -14,46 +14,30 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
 {
     public class UserManager : IUserService
     {
-        //private readonly IValidator _validator;
         private readonly IUserDal _userDal;
 
         public UserManager(IUserDal userDal)
         {
             _userDal = userDal;
-            //_validator = new UserValidator();
         }
 
         [ValidationAspect(typeof(UserValidator))]
         public User Create(User user)
         {
-            byte[] passwordHash;
-            byte[] passwordSalt;
-
-            HashingHelper.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
+            HashingHelper.CreatePasswordHash(user.Password, out byte[] passwordHash, out byte[] passwordSalt);
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
-            //var user = new User
-            //{
-            //    Username = username,
-            //    Password = password,
-            //    PasswordHash = passwordHash,
-            //    PasswordSalt = passwordSalt,
-            //};
-            //ValidationTool.Validate(_validator, user);
-
             return _userDal.Add(user);
         }
 
         [ValidationAspect(typeof(UserValidator))]
-        public User Login(User tempUser)
+        public User Login(User user)
         {
-            //ValidationTool.Validate(_validator, user);
-            User user = null;
-            user = _userDal.Get(u => u.Username == tempUser.Username);
-            bool isVerified = HashingHelper.VerifyPasswordHash(tempUser.Password, user.PasswordHash, user.PasswordSalt);
-
-            return isVerified 
-                ? user ?? null
+            string password = user.Password;
+            user = _userDal.Get(u => u.Username == user.Username);
+            bool isVerified = HashingHelper.VerifyPasswordHash(password, user?.PasswordHash, user?.PasswordSalt);
+            return isVerified
+                ? user
                 : null;
         }
     }

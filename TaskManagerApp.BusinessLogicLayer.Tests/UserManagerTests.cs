@@ -6,6 +6,7 @@ using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.Concrete;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.DataAccessLayer.Concrete.EntityFramework;
+using TaskManagerApp.Entities.Concrete;
 using Xunit;
 
 namespace TaskManagerApp.BusinessLogicLayer.Tests
@@ -22,22 +23,76 @@ namespace TaskManagerApp.BusinessLogicLayer.Tests
             _userManager = serviceProvider.GetService<IUserService>();
         }
         [Fact]
-        public void Should_Be_Successfull_Login()
+        public void Should_Login()
         {
-            string username = "test_user";
-            string password = "22222222";
-            var user = _userManager.Login(username, password);
-
+            var tempUser = new User()
+            {
+                Username = "test_user",
+                Password = "22222222",
+            };
+            var user = _userManager.Login(tempUser);
             Assert.NotNull(user);
         }
 
         [Fact]
-        public void Should_Be_Unsuccessfull_Login()
+        public void Should_Not_Login_For_Wrong_Username()
         {
-            string username = "test_user";
-            string password = "22222223";
-            var user = _userManager.Login(username, password);
+            var user = new User()
+            {
+                Username = "1",
+                Password = "--------",
+            };
 
+            user = _userManager.Login(user);
+            Assert.Null(user);
+        }
+
+        [Fact]
+        public void Should_Not_Login_For_Wrong_Password()
+        {
+            var user = new User()
+            {
+                Username = "test_user",
+                Password = "--------",
+            };
+
+            user = _userManager.Login(user);
+            Assert.Null(user);
+        }
+
+        [Fact]
+        public void Should_Not_Login_For_Null_User()
+        {
+            User user = null;
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                user = _userManager.Login(user);
+            });
+        }
+
+        [Fact]
+        public void Should_Not_Login_For_Null_Password()
+        {
+            var user = new User()
+            {
+                Username = "test_user",
+                Password = null,
+            };
+
+            user = _userManager.Login(user);
+            Assert.Null(user);
+        }
+
+        [Fact]
+        public void Should_Not_Login_For_Empty_Password()
+        {
+            var user = new User()
+            {
+                Username = "test_user",
+                Password = "",
+            };
+
+            user = _userManager.Login(user);
             Assert.Null(user);
         }
 

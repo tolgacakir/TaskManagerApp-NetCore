@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
+using TaskManagerApp.Core.Aspects.Autofac.Transaction;
 using TaskManagerApp.Core.Aspects.Autofac.Validation;
 using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
 using TaskManagerApp.DataAccessLayer.Abstract;
@@ -16,26 +17,22 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
 {
     public class TaskManager : ITaskService
     {
-        //private readonly IValidator _validator;
         private readonly ITaskDal _taskDal;
 
         public TaskManager(ITaskDal taskDal)
         {
             _taskDal = taskDal;
-            //_validator = new TaskValidator();
         }
 
         [ValidationAspect(typeof(TaskValidator))]
         public void Add(Task task)
         {
-            //ValidationTool.Validate(_validator, task);
             _taskDal.Add(task);
         }
 
         [ValidationAspect(typeof(TaskValidator))]
         public void Update(Task task)
         {
-            //ValidationTool.Validate(_validator, task);
             _taskDal.Update(task);
         }
 
@@ -59,6 +56,13 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
                 .ToList();
 
             return result;
+        }
+
+        [TransactionScopeAspect]
+        public void TransactionalOperationExample(Task task)
+        {
+            _taskDal.Update(task);
+            _taskDal.Add(task);
         }
     }
 }
