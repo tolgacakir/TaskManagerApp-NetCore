@@ -21,6 +21,16 @@ This layer is an Asp.Net Core Mvc project. It includes Models, Views, Controller
 
 ## How to Develop
 
+### Example DB Backup
+You can access database backup from here: https://drive.google.com/file/d/1-jMfdVZM7dU3qZ-CI2f5tiNkwuoB1u3o/view?usp=sharing
+There is 3 user in User.dbo; username:password
+- tolga:00000000
+- FirstUser:11111111
+- test_user:22222222
+
+#### Creating New User
+There is no user creating function on WebUi. You can edit and execute this test method: TaskManagerApp.BusinessLogicLayer.Tests.UserManagerTests.Should_Create_User()
+
 ### Changing the **ConnectionString**
 - Open the TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.TaskManagerDbContext.cs file
 - Change the OnConfiguring() -> optionsBuilder.UseSqlServer(@"**myConnectionString**");
