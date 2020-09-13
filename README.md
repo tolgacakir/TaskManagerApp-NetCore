@@ -3,10 +3,10 @@ The task manager sample application with Asp.NetCore MVC
 
 ## The Solution Architecture
 - **Core:**
-The Core layer is an portable class library for every project. It doesn't depend on any project in this solution but it can depend on some nuget libraries. For exp.: FluentValidation. It includes technology-specific project/entity-independent codes like Logger, Validator, ORM interfaces and generic implementations and utilities. For exp.: FileManager, Entity Framework Core GenericRepository, FileLogger...
+The Core layer is a portable class library for every project. It doesn't depend on any project in this solution but it can depend on some nuget libraries. For exp.: FluentValidation. It includes technology-specific project/entity-independent codes like Logger, Validator, ORM interfaces and generic implementations and utilities. For exp.: FileManager, Entity Framework Core GenericRepository, FileLogger...
 
 - **Entities:**
-The Entities layer is an modelling the DB objects. It includes entity objects that usable in all of the layers like **User**.
+The Entities layer is a modelling the DB objects. It includes entity objects that usable in all of the layers like **User**.
 
 - **DataAccessLayer:**
 The Data Access Layer is layer that connecting to the data. It can includes different data access technologies for exp.: EF, Nhibernate, Ado.Net etc.
@@ -23,7 +23,7 @@ This layer is an Asp.Net Core Mvc project. It includes Models, Views, Controller
 
 ### Example DB Backup
 You can access database backup from here: https://drive.google.com/file/d/1-jMfdVZM7dU3qZ-CI2f5tiNkwuoB1u3o/view?usp=sharing
-There is 3 user in User.dbo; username:password
+There are 3 users in User.dbo; username:password
 - tolga:00000000
 - FirstUser:11111111
 - test_user:22222222
