@@ -398,11 +398,17 @@ This controller is agnostic about logger implementation.
 
 ### Adding New User Interface
 
--Create new user interface;
+- Create new user interface;
 For exp.: Console, Winform, Wpf etc.
 
--Use the service layer objects (in BLL);
+- Use the service layer objects (in BLL);
 For exp.: IUserService
 
--Configure the dependency injection;
+- Configure the dependency injection;
 For ILogger, IUserService etc.
+
+
+### For More Details
+- Autofac (5.2.0), Autofac.Extras.DynamicProxy (5.0.0) and Castle.Core (4.4.1) packages are using for AOP mechanism. [For more details about interception and DI](https://autofaccn.readthedocs.io/en/latest/advanced/interceptors.html)
+
+- FluentValidation (9.2.0) package are using for validation mechanism. [For more details about validation](https://docs.fluentvalidation.net/en/latest/start.html)
