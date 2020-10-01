@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
-using TaskManagerApp.Core.Aspects.Autofac.Validation;
+using TaskManagerApp.Core.Aspects.Castle.Validation;
 using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
 using TaskManagerApp.Core.Utilities.Security;
 using TaskManagerApp.DataAccessLayer.Abstract;

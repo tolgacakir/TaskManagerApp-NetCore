@@ -8,7 +8,7 @@ using TaskManagerApp.Core.Exceptions;
 using TaskManagerApp.Core.Utilities.Interceptors.Castle;
 using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
 
-namespace TaskManagerApp.Core.Aspects.Autofac.Validation
+namespace TaskManagerApp.Core.Aspects.Castle.Validation
 {
     public class ValidationAspect : MethodInterception
     {

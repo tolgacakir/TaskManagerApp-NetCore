@@ -7,9 +7,9 @@ using System.Linq.Expressions;
 using System.Text;
 using TaskManagerApp.BusinessLogicLayer.Abstract;
 using TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation;
-using TaskManagerApp.Core.Aspects.Autofac.Transaction;
-using TaskManagerApp.Core.Aspects.Autofac.Validation;
-using TaskManagerApp.Core.CrossCuttingConcerns.Validation;
+using TaskManagerApp.Core.Aspects.Castle.Caching;
+using TaskManagerApp.Core.Aspects.Castle.Transaction;
+using TaskManagerApp.Core.Aspects.Castle.Validation;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.Entities.Concrete;
 
@@ -47,6 +47,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
             return _taskDal.GetList(t => t.UserId == userId);
         }
 
+        [CacheAspect(1)]
         public List<Task> GetListWithType(int userId)
         {
             var result = _taskDal
@@ -54,7 +55,6 @@ namespace TaskManagerApp.BusinessLogicLayer.Concrete
                 .Where(t => t.UserId == userId)
                 .Include(t => t.Type)
                 .ToList();
-
             return result;
         }
 

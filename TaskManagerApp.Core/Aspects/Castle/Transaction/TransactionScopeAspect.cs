@@ -5,7 +5,7 @@ using System.Text;
 using System.Transactions;
 using TaskManagerApp.Core.Utilities.Interceptors.Castle;
 
-namespace TaskManagerApp.Core.Aspects.Autofac.Transaction
+namespace TaskManagerApp.Core.Aspects.Castle.Transaction
 {
     public class TransactionScopeAspect : MethodInterception
     {

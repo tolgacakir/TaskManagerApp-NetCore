@@ -12,3 +12,17 @@ Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content roo
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
 Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:15.09.2020 17:25:57
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Application started. Press Ctrl+C to shut down.
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Hosting environment: Development
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Content root path: C:\Users\endos\source\repos\TaskManagerApp\TaskManagerApp.WebUi
+Log Level : Information | Event ID : 0 | Event Name :  | Formatter : Logged in. Username:tolga DateTime:1.10.2020 08:27:35

@@ -18,6 +18,9 @@ using TaskManagerApp.Core.CrossCuttingConcerns.Logging.LoggerProviders;
 using TaskManagerApp.DataAccessLayer.Abstract;
 using TaskManagerApp.DataAccessLayer.Concrete.EntityFramework;
 using TaskManagerApp.BusinessLogicLayer.DependencyResolvers.Microsoft;
+using TaskManagerApp.Core.Extensions;
+using TaskManagerApp.Core.Utilities.IoC;
+using TaskManagerApp.Core.DependencyResolvers;
 
 namespace TaskManagerApp.WebUi
 {
@@ -47,12 +50,14 @@ namespace TaskManagerApp.WebUi
                           HttpOnly = false,
                                  Name = "Login.Security.Cookie",
                                  Path = "/",
-                              
-
                              };
                          });
 
             services.AddTaskManagerDependencyResolver();
+            services.AddDependencyResolvers(new ICoreModule[]
+            {
+                new CoreModule()
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
