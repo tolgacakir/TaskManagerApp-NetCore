@@ -3,10 +3,10 @@ The task manager sample application with Asp.NetCore MVC
 
 ## The Solution Architecture
 - **Core:**
-The Core layer is an portable class library for every project. It doesn't depend on any project in this solution but it can depend on some nuget libraries. For exp.: FluentValidation. It includes technology-specific project/entity-independent codes like Logger, Validator, ORM interfaces and generic implementations and utilities. For exp.: FileManager, Entity Framework Core GenericRepository, FileLogger...
+The Core layer is a portable class library for every project. It doesn't depend on any project in this solution but it can depend on some nuget libraries. For exp.: FluentValidation. It includes technology-specific project/entity-independent codes like Logger, Validator, ORM interfaces and generic implementations and utilities. For exp.: FileManager, Entity Framework Core GenericRepository, FileLogger...
 
 - **Entities:**
-The Entities layer is an modelling the DB objects. It includes entity objects that usable in all of the layers like **User**.
+The Entities layer is a modelling the DB objects. It includes entity objects that usable in all of the layers like **User**.
 
 - **DataAccessLayer:**
 The Data Access Layer is layer that connecting to the data. It can includes different data access technologies for exp.: EF, Nhibernate, Ado.Net etc.
@@ -23,7 +23,7 @@ This layer is an Asp.Net Core Mvc project. It includes Models, Views, Controller
 
 ### Example DB Backup
 You can access database backup from here: https://drive.google.com/file/d/1-jMfdVZM7dU3qZ-CI2f5tiNkwuoB1u3o/view?usp=sharing
-There is 3 user in User.dbo; username:password
+There are 3 users in User.dbo; username:password
 - tolga:00000000
 - FirstUser:11111111
 - test_user:22222222
@@ -46,13 +46,13 @@ namespace TaskManagerApp.Entities.Concrete
   }
 }
 ```
-__
+___
 - **Create Mapping, Edit DbContext and Apply Mapping**
-Creating Map:
+Creating Entity Configuration:
 ```C#
-namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
+namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Configurations
 {
-    public class MyEntityMap : IEntityTypeConfiguration<MyEntity>
+    public class MyEntityConfiguration : IEntityTypeConfiguration<MyEntity>
     {
         public void Configure(EntityTypeBuilder<MyEntity> builder)
         {
@@ -64,7 +64,7 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework.Mappings
     }
 }
 ```
-Adding DbSet to DbContext:
+Adding DbSet to DbContext and Applying Entity Configuration:
 ```C#
 namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
 {
@@ -76,12 +76,12 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //...
-            modelBuilder.ApplyConfiguration(new MyEntityMap());
+            modelBuilder.ApplyConfiguration(new MyEntityConfiguration());
         }
     }
 }
 ```
-__
+___
 - **Create technology-independent repository interface;**
 ```C#
 namespace TaskManagerApp.DataAccessLayer.Abstract
@@ -102,7 +102,7 @@ namespace TaskManagerApp.DataAccessLayer.Abstract
   }
 }
 ```
-__
+___
 - **Create technology-specific repository class;**
 ```C#
 namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
@@ -126,7 +126,7 @@ namespace TaskManagerApp.DataAccessLayer.Concrete.EntityFramework
   }
 }
 ```
-
+___
 ### Adding the new Service/Manager Class for MyEntity on BusinessLogicLayer
 
 - **Create an service interface;**
@@ -146,7 +146,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
     }
 }
 ```
-__
+___
 - **Create an manager class as an implementation the service interface;**
 ```C#
 namespace TaskManagerApp.BusinessLogicLayer.Abstract
@@ -188,7 +188,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
 }
 ```
 MyEntityManager doesn't know the IMyEntityService implementation or any ORM, DB technologies. This class only works with repository (dal object) interface.
-
+___
 ### Using MyEntity Service Object In Client-Side
 - Registration for dependency injection;
 ```C#
@@ -206,7 +206,7 @@ namespace TaskManagerApp.WebUi
     }
 }
 ```
-__
+___
 - Inject with constructor and use it;
 ```C#
 namespace TaskManagerApp.WebUi.Controllers
@@ -239,7 +239,7 @@ namespace TaskManagerApp.WebUi.Controllers
     }
 }
 ```
-
+___
 ### Adding Validation For MyEntity
 
 - Create MyEntityValidator;
@@ -256,7 +256,7 @@ namespace TaskManagerApp.BusinessLogicLayer.ValidationRules.FluentValidation
     }
 }
 ```
-__
+___
 - Use MyEntityValidator in MyEntityManger;
 ```C#
 namespace TaskManagerApp.BusinessLogicLayer.Abstract
@@ -286,7 +286,7 @@ namespace TaskManagerApp.BusinessLogicLayer.Abstract
     }
 }
 ```
-
+___
 ### Adding CustomLogger
 - Create CustomLogger; 
 TaskManagerApp.Core.CrossCuttingConcerns.Logging.Loggers -> CustomLogger.cs
@@ -320,7 +320,7 @@ namespace TaskManagerApp.Core.CrossCuttingConcerns.Logging.Loggers
 }
 
 ```
-__
+___
 - Create CustomLoggerProvider;
 
 ```C#
@@ -343,7 +343,7 @@ namespace TaskManagerApp.Core.CrossCuttingConcerns.Logging.LoggerProviders
 }
 
 ```
-__
+___
 - Use CustomLoggerProvider;
 
 ```C#
@@ -395,14 +395,20 @@ namespace TaskManagerApp.WebUi.Controllers
 }
 ```
 This controller is agnostic about logger implementation.
-
+___
 ### Adding New User Interface
 
--Create new user interface;
+- Create new user interface;
 For exp.: Console, Winform, Wpf etc.
 
--Use the service layer objects (in BLL);
+- Use the service layer objects (in BLL);
 For exp.: IUserService
 
--Configure the dependency injection;
+- Configure the dependency injection;
 For ILogger, IUserService etc.
+
+___
+### For More Details
+- Autofac (5.2.0), Autofac.Extras.DynamicProxy (5.0.0) and Castle.Core (4.4.1) packages are using for AOP mechanism. [For more details about interception and DI](https://autofaccn.readthedocs.io/en/latest/advanced/interceptors.html)
+
+- FluentValidation (9.2.0) package are using for validation mechanism. [For more details about validation](https://docs.fluentvalidation.net/en/latest/start.html)
