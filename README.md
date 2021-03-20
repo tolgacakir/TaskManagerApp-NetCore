@@ -1,5 +1,7 @@
 # TaskManagerApp-NetCore
-The task manager sample application with Asp.NetCore MVC
+The task manager sample application with Asp.NetCore MVC.
+
+The traditional layered architecture is used in this project.
 
 ## The Solution Architecture
 - **Core:**
